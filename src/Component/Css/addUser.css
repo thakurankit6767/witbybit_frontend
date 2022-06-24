@@ -1,0 +1,54 @@
+.pass {
+  width: 62px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #2cbf6e;
+  color: white;
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: "12px";
+  margin-left: 30px;
+  margin-left: 10px;
+}
+
+.fail {
+  width: 55px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #f24643;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-family: "Montserrat";
+  font-size: "12px";
+  margin-left: 10px;
+}
+
+.ave {
+  color: "#2CA4D8";
+  font-size: "14px";
+  font-family: "Montserrat";
+  font-weight: 600;
+  margin-left: 13px;
+}
+
+.poo {
+  color: "#F24643";
+  font-size: "14px";
+  font-family: "Montserrat";
+  font-weight: 600;
+  margin-left: 13px;
+}
+
+.containerstyle {
+  /* background-color: "white"; */
+  margin: "auto";
+  background-color: "#FFFFFF";
+  padding: "20px";
+  border-radius: "20px";
+  width: "480px";
+  height: "500px";
+  left: "480px";
+  margin-top: "100px"
+}

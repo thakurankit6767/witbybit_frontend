@@ -1,0 +1,37 @@
+.passed {
+  width: 62px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #2cbf6e;
+  color: white;
+  text-align: center;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: "12px";
+}
+
+.failed {
+  width: 55px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #f24643;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-family: "Montserrat";
+  font-size: "12px";
+}
+
+.average {
+  color: "#2CA4D8";
+  font-size: "14px";
+  font-family: "Montserrat";
+  font-weight: 600;
+}
+
+.poor {
+  color: "#F24643";
+  font-size: "14px";
+  font-family: "Montserrat";
+  font-weight: 600;
+}
