@@ -113,7 +113,6 @@ export default function EditUser() {
               value={studentName}
               id="my-input"
               aria-describedby="my-helper-text"
-              
             />
           </FormControl>
           <FormControl>
@@ -124,7 +123,6 @@ export default function EditUser() {
               value={classNo}
               id="my-input"
               aria-describedby="my-helper-text"
-             
             />
           </FormControl>
 
@@ -136,7 +134,6 @@ export default function EditUser() {
               value={score}
               id="my-input"
               aria-describedby="my-helper-text"
-             
             />
           </FormControl>
 
@@ -157,13 +154,17 @@ export default function EditUser() {
           <FormControl>
             <InputLabel htmlFor="my-input">Grade</InputLabel>
             <br />
-            <p style={{ border: "0px solid green", width: "70px" }}>
+            <div style={{ border: "0px solid green", width: "70px" }}>
               {xyz(+user.score) ? (
-                <div className="ave"><p style={{color:"#2CA4D8"}}>Average</p></div>
+                <div className="ave">
+                  <p style={{ color: "#2CA4D8" }}>Average</p>
+                </div>
               ) : (
-                <div className="poo"><p style={{color:"#F24643"}}>Poor</p></div>
+                <div className="poo">
+                  <p style={{ color: "#F24643" }}>Poor</p>
+                </div>
               )}
-            </p>
+            </div>
           </FormControl>
           <div style={{ display: "flex", marginLeft: "auto", gap: "5px" }}>
             <Button variant="contained" color="primary" onClick={handleClose}>
