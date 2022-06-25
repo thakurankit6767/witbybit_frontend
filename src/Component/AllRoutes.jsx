@@ -15,7 +15,7 @@ function AllRoutes() {
         <Route path="/" element={<AllUsers />} />
         <Route path="/add" element={<AddUser />} />
         <Route path="/edit/:id" element={<EditUser />} />
-        <Route path="/remove" element={<RemoveUser />} />
+        <Route path="/remove/:id" element={<RemoveUser />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

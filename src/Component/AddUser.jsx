@@ -130,7 +130,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import react, { useState } from "react";
+import react, { useState,useEffect } from "react";
 import {
   FormGroup,
   FormControl,
@@ -161,9 +161,14 @@ const Container = styled(FormGroup)`
 `;
 
 export default function AddUser() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  
+  let navigate = useNavigate();
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/")
+  }
 
   const [user, setUser] = useState(initialValue);
   const [addd, setAddd] = useState("c xfxv ");
@@ -204,22 +209,29 @@ export default function AddUser() {
   //   }
   // }
 
-  let navigate = useNavigate();
 
   const onValueChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+//  useEffect(() => {
+//     addUserDetails()
+//   }, [addUser])
+  
+
   const addUserDetails = async () => {
     await addUser(user);
     handleClose();
+   
+    navigate("/");
+    
   };
 
   return (
     <>
-      <Button onClick={handleOpen} style={{ color: "white" }}>
+      {/* <Button onClick={handleOpen} style={{ color: "white",backgroundColor:"blue" }}>
         + Add
-      </Button>
+      </Button> */}
       <Modal
         keepMounted
         open={open}

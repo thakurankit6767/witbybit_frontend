@@ -155,9 +155,12 @@ const style = {
 };
 
 export default function EditUser() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  let navigate = useNavigate();
+  const handleClose = () => {
+    navigate("/")
+  }
 
   const [user, setUser] = useState(initialValue);
   const { studentName, classNo, score, result, grade } = user;
@@ -165,15 +168,15 @@ export default function EditUser() {
 
   const xyz = (x) => {
     if (+x >= 30) {
-      console.log(x, "napass");
+     // console.log(x, "napass");
       return true;
     } else {
-      console.log(x, "pass");
+    //  console.log(x, "pass");
       return false;
     }
   };
 
-  let navigate = useNavigate();
+ 
 
   React.useEffect(() => {
     loadUserDetails();
@@ -187,6 +190,7 @@ export default function EditUser() {
   const editUserDetails = async () => {
     const response = await editUser(id, user);
     setUser()
+    navigate("/");
   };
 
   const onValueChange = (e) => {
@@ -197,6 +201,7 @@ export default function EditUser() {
   return (
     <>
       <Button onClick={handleOpen}>
+        Edit
         <img src="../Assets/Images/Edit.png" />
       </Button>
       <Modal

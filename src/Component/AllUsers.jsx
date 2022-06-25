@@ -14,8 +14,8 @@ import {
 import { AiOutlineDelete } from "react-icons/ai";
 import style from "../Component/Css/allUser.css";
 
-import { getUsers, deleteUser } from "../Service/api";
-import { Link } from "react-router-dom";
+import { getUsers, deleteUser, addUser } from "../Service/api";
+import { Link, useNavigate } from "react-router-dom";
 import { Container } from "@mui/system";
 import AddUser from "./AddUser";
 import EditUser from "./EditUser";
@@ -67,10 +67,13 @@ const ButtonAddUser = styled("button")({
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  const navigate = useNavigate();
+  const handleClose = () => {
+    setOpen(false);
+   
+  }
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -84,6 +87,9 @@ const AllUsers = () => {
     let response = await getUsers();
     setUsers(response.data);
   };
+
+ 
+
   const xyz = (x) => {
     if (+x >= 30) {
       console.log(x, "napass");
@@ -137,7 +143,9 @@ const AllUsers = () => {
                   marginBottom: "5px",
                 }}
               >
-                <AddUser />
+                <Link to="/add" style={{ color: "white" }}>
+                  + Add
+                </Link>
               </Button>
             </Boxone>
             <StyledTable>
@@ -186,16 +194,32 @@ const AllUsers = () => {
                       {user.grade}
                       <div style={{ display: "flex", gap: "px" }}>
                         <Button>
-                          <Link
+                          {/* <Link
                             to={{
                               pathname: "/edit/:id",
                               state: { EditUser: true },
                             }}
                           ></Link>
-                          <EditUser to={`/edit/${user._id}`} />
+                          <EditUser to={`/edit/${user._id}`} /> */}
+                        
+                           
+                            <Link
+                              to={`/edit/${user._id}`}
+                              style={{ color: "white" }}
+                            >
+                              <img src="../Assets/Images/Edit.png"/>
+                              Edit
+                            </Link>
+                         
                         </Button>
                         <Button>
-                          <RemoveUser />
+                        <Link
+                              to={`/remove/${user._id}`}
+                              style={{ color: "white" }}
+                            >
+                              <img src="../Assets/Images/delete.png"/>
+                              Delete
+                            </Link>
                         </Button>
                       </div>
                     </TableCell>

@@ -141,15 +141,15 @@ import {
   Typography,
 } from "@mui/material";
 import { addUser } from "../Service/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getUsers, deleteUser } from "../Service/api";
 
 const initialValue = {
   studentName: "",
   classNo: "",
-  // result: '',
+  result: '',
   score: "",
-  // grade:''
+  grade:''
 };
 
 const Container = styled(FormGroup)`
@@ -171,26 +171,44 @@ const style = {
   //   boxShadow: 24,
 };
 
-export default function RemoveUser({ user }) {
-  const [open, setOpen] = React.useState(false);
+export default function RemoveUser() {
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const [users, setUsers] = useState([]);
-
   let navigate = useNavigate();
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/")
+  }
+  const [user, setUser] = useState(initialValue);
+
+  const { studentName, classNo, score, result, grade } = user;
+  const { id } = useParams();
+
+
 
   useEffect(() => {
-    getAllUsers();
+    loadUserDetails();
   }, []);
 
   const deleteUserData = async (id) => {
     await deleteUser(id);
-    getAllUsers();
+    setUser()
+    navigate("/")
+
+    //getAllUsers();
   };
-  const getAllUsers = async () => {
-    let response = await getUsers();
-    setUsers(response.data);
+  const loadUserDetails = async () => {
+    const response = await getUsers(id);
+    setUser(response.data);
   };
+
+  // const handleDelete = (value) => {
+  //   setUser(
+  //     user.filter((e) => {
+  //       if (e.id !== value) return e;
+  //     })
+  //   );
+  // };
   return (
     <>
       <Button onClick={handleOpen}>
@@ -254,7 +272,7 @@ export default function RemoveUser({ user }) {
               </p>
             </div>
 
-            {users.map((user) => (
+           
               <>
                 <div>
                   <p
@@ -279,7 +297,7 @@ export default function RemoveUser({ user }) {
                       color: "#242424",
                     }}
                   >
-                    {user.studentName}
+                    {studentName}
                   </p>
                 </div>
 
@@ -306,11 +324,11 @@ export default function RemoveUser({ user }) {
                       color: "#242424",
                     }}
                   >
-                    {user.classNo}
+                    {classNo}
                   </p>
                 </div>
               </>
-            ))}
+        
           </div>
 
           <br />
