@@ -22,10 +22,6 @@ import EditUser from "./EditUser";
 import SchoolSpace from "./SchoolSpace";
 import RemoveUser from "./RemoveUser";
 
-// const Container=styled()`
-// width:40%;
-// margin:50px solid red
-// `
 
 const StyledTable = styled(Table)`
   width: 100%;
@@ -72,8 +68,7 @@ const AllUsers = () => {
   const navigate = useNavigate();
   const handleClose = () => {
     setOpen(false);
-   
-  }
+  };
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -87,8 +82,6 @@ const AllUsers = () => {
     let response = await getUsers();
     setUsers(response.data);
   };
-
- 
 
   const xyz = (x) => {
     if (+x >= 30) {
@@ -143,7 +136,7 @@ const AllUsers = () => {
                   marginBottom: "5px",
                 }}
               >
-                <Link to="/add" style={{ color: "white" }}>
+                <Link to="/add" style={{ color: "white",textDecoration: "none"}}>
                   + Add
                 </Link>
               </Button>
@@ -158,7 +151,7 @@ const AllUsers = () => {
                 }}
               >
                 <THead>
-                  <TableCell style={{ width: "10%" }}>No</TableCell>
+                  <TableCell style={{ width: "10%" }}>Id</TableCell>
                   <TableCell style={{ width: "30%" }}>Student Name</TableCell>
                   <TableCell style={{ width: "30%" }}>Class</TableCell>
                   <TableCell style={{ width: "30%" }}>Result</TableCell>
@@ -194,61 +187,25 @@ const AllUsers = () => {
                       {user.grade}
                       <div style={{ display: "flex", gap: "px" }}>
                         <Button>
-                          {/* <Link
-                            to={{
-                              pathname: "/edit/:id",
-                              state: { EditUser: true },
-                            }}
-                          ></Link>
-                          <EditUser to={`/edit/${user._id}`} /> */}
-                        
-                           
-                            <Link
-                              to={`/edit/${user._id}`}
-                              style={{ color: "white" }}
-                            >
-                              <img src="../Assets/Images/Edit.png"/>
-                              Edit
-                            </Link>
-                         
+                          <Link
+                            to={`/edit/${user._id}`}
+                            style={{ color: "white" }}
+                          >
+                            <img src="../Assets/Images/Edit.png" />
+                            Edit
+                          </Link>
                         </Button>
                         <Button>
-                        <Link
-                              to={`/remove/${user._id}`}
-                              style={{ color: "white" }}
-                            >
-                              <img src="../Assets/Images/delete.png"/>
-                              Delete
-                            </Link>
+                          <Link
+                            to={`/remove/${user._id}`}
+                            style={{ color: "white" }}
+                          >
+                            <img src="../Assets/Images/delete.png" />
+                            Delete
+                          </Link>
                         </Button>
                       </div>
                     </TableCell>
-                    {/* <Button
-                        color="primary"
-                        variant="contained"
-                        style={{ marginRight: 10 }}
-                        component={Link}
-                        to={`/edit/${user._id}`}
-                      >
-                      </Button> */}
-                    {/* change it to user.id to use JSON Server */}
-                    {/* <Button
-                        color="secondary"
-                        variant="contained"
-                        onClick={() => deleteUserData(user._id)}
-                      >
-                        Delete
-                      </Button> */}
-                    {/* change it to user.id to use JSON Server */}
-                    {/* change it to user.id to use JSON Server */}
-                    {/* <Button
-                        color="secondary"
-                        variant="contained"
-                        onClick={() => deleteUserData(user._id)}
-                      >
-                        Delete
-                      </Button> */}
-                    {/* change it to user.id to use JSON Server */}
                   </TRow>
                 ))}
               </TableBody>

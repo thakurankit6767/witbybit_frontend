@@ -1,132 +1,3 @@
-// import react, { useState } from "react";
-// import {
-//   FormGroup,
-//   FormControl,
-//   InputLabel,
-//   Input,
-//   Button,
-//   styled,
-//   Typography,
-// } from "@mui/material";
-// import { addUser } from "../Service/api";
-// import { useNavigate } from "react-router-dom";
-
-// const initialValue = {
-//   studentName: "",
-//   classNo: "",
-//   // result: '',
-//   score: "",
-//   // grade:''
-// };
-
-// const Container = styled(FormGroup)`
-//     width: 50%;
-//     margin: 5% 0 0 25%;
-//     & > div {
-//         margin-top: 20px;
-// `;
-
-// const RemoveUser = () => {
-//   const [user, setUser] = useState(initialValue);
-//   const { studentName, classNo, score } = user;
-
-//   const [resultData, setResultData] = useState("-")
-//   const [gradeData, setGradeData] = useState("-")
-
-//   const resultHandle=()=>{
-//     if(score>=76){
-//         console.log("passed")
-//     }else if(score<=75 && score>=31){
-//         console.log("passed")
-//     }else{
-//         console.log("Failed")
-//     }
-//   }
-//   resultHandle()
-
-//   let navigate = useNavigate();
-
-//   const onValueChange = (e) => {
-//     setUser({ ...user, [e.target.name]: e.target.value });
-//   };
-
-//   const addUserDetails = async () => {
-//     await addUser(user);
-//     navigate("/all");
-//   };
-
-//   return (
-//     <>
-//     <Container>
-//       <Typography variant="h4">Add User</Typography>
-//       <FormControl>
-//         <InputLabel htmlFor="my-input">Student Name</InputLabel>
-//         <Input
-//           onChange={(e) => onValueChange(e)}
-//           name="studentName"
-//           value={studentName}
-//           id="my-input"
-//         />
-//       </FormControl>
-//       <FormControl>
-//         <InputLabel htmlFor="my-input">Class</InputLabel>
-//         <Input
-//           onChange={(e) => onValueChange(e)}
-//           name="classNo"
-//           value={classNo}
-//           id="my-input"
-//         />
-//       </FormControl>
-
-//       <FormControl>
-//         <InputLabel htmlFor="my-input">Score</InputLabel>
-//         <Input
-//           onChange={(e) => onValueChange(e)}
-//           name="score"
-//           value={score}
-//           id="my-input"
-//         />
-//       </FormControl>
-
-//       {/* <FormControl>
-//                 <InputLabel htmlFor="my-input">Result</InputLabel>
-//                 <Input onChange={(e) => onValueChange(e)} name='result' value={result} id="my-input"/>
-//             </FormControl> */}
-//       {/* <FormControl>
-//                 <InputLabel htmlFor="my-input">Grade</InputLabel>
-//                 <Input onChange={(e) => onValueChange(e)} name='grade' value={grade} id="my-input" />
-//             </FormControl> */}
-//       <FormControl>
-//         <InputLabel htmlFor="my-input">Result</InputLabel>
-//         <br />
-//         <div style={{ border: "1px solid red" }}>
-//           <p style={{ border: "1px solid green", width: "70px" }}oninput={setResultData} >{resultData}</p>
-//         </div>
-//       </FormControl>
-
-//       <FormControl>
-//         <InputLabel htmlFor="my-input">Grade</InputLabel>
-//         <br />
-//         <div style={{ border: "1px solid red" }}>
-//           <p style={{ border: "1px solid green", width: "70px" }}>4511</p>
-//         </div>
-//       </FormControl>
-//       <FormControl>
-//         <Button
-//           variant="contained"
-//           color="primary"
-//           onClick={() => addUserDetails()}
-//         >
-//           Add User
-//         </Button>
-//       </FormControl>
-//     </Container>
-//     </>
-//   );
-// };
-
-// export default RemoveUser;
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -147,9 +18,9 @@ import { getUsers, deleteUser } from "../Service/api";
 const initialValue = {
   studentName: "",
   classNo: "",
-  result: '',
+  result: "",
   score: "",
-  grade:''
+  grade: "",
 };
 
 const Container = styled(FormGroup)`
@@ -161,14 +32,7 @@ const Container = styled(FormGroup)`
 `;
 
 const style = {
-  //   position: 'absolute',
-  //   top: '50%',
-  //   left: '50%',
-  //   transform: 'translate(-50%, -50%)',
-  //   width: 400,
   backgroundColor: "white",
-  //   border: '2px solid #000',
-  //   boxShadow: 24,
 };
 
 export default function RemoveUser() {
@@ -177,14 +41,12 @@ export default function RemoveUser() {
   let navigate = useNavigate();
   const handleClose = () => {
     setOpen(false);
-    navigate("/")
-  }
+    navigate("/");
+  };
   const [user, setUser] = useState(initialValue);
 
   const { studentName, classNo, score, result, grade } = user;
   const { id } = useParams();
-
-
 
   useEffect(() => {
     loadUserDetails();
@@ -192,23 +54,14 @@ export default function RemoveUser() {
 
   const deleteUserData = async (id) => {
     await deleteUser(id);
-    setUser()
-    navigate("/")
-
-    //getAllUsers();
+    setUser();
+    navigate("/");
   };
   const loadUserDetails = async () => {
     const response = await getUsers(id);
     setUser(response.data);
   };
 
-  // const handleDelete = (value) => {
-  //   setUser(
-  //     user.filter((e) => {
-  //       if (e.id !== value) return e;
-  //     })
-  //   );
-  // };
   return (
     <>
       <Button onClick={handleOpen}>
@@ -272,63 +125,61 @@ export default function RemoveUser() {
               </p>
             </div>
 
-           
-              <>
-                <div>
-                  <p
-                    style={{
-                      fontFamily: "Montserrat",
-                      fontWeight: 500,
-                      fontSize: "12px",
-                      lineHeight: "16px",
-                      margin: "10px",
-                      color: "#7F878A",
-                    }}
-                  >
-                    STUDENT NAME
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Montserrat",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      lineHeight: "16px",
-                      margin: "10px",
-                      color: "#242424",
-                    }}
-                  >
-                    {studentName}
-                  </p>
-                </div>
+            <>
+              <div>
+                <p
+                  style={{
+                    fontFamily: "Montserrat",
+                    fontWeight: 500,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    margin: "10px",
+                    color: "#7F878A",
+                  }}
+                >
+                  STUDENT NAME
+                </p>
+                <p
+                  style={{
+                    fontFamily: "Montserrat",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    lineHeight: "16px",
+                    margin: "10px",
+                    color: "#242424",
+                  }}
+                >
+                  {studentName}
+                </p>
+              </div>
 
-                <div>
-                  <p
-                    style={{
-                      fontFamily: "Montserrat",
-                      fontWeight: 500,
-                      fontSize: "12px",
-                      lineHeight: "16px",
-                      margin: "10px",
-                      color: "#7F878A",
-                    }}
-                  >
-                    CLASS
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Montserrat",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      lineHeight: "16px",
-                      margin: "10px",
-                      color: "#242424",
-                    }}
-                  >
-                    {classNo}
-                  </p>
-                </div>
-              </>
-        
+              <div>
+                <p
+                  style={{
+                    fontFamily: "Montserrat",
+                    fontWeight: 500,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    margin: "10px",
+                    color: "#7F878A",
+                  }}
+                >
+                  CLASS
+                </p>
+                <p
+                  style={{
+                    fontFamily: "Montserrat",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    lineHeight: "16px",
+                    margin: "10px",
+                    color: "#242424",
+                  }}
+                >
+                  {classNo}
+                </p>
+              </div>
+            </>
           </div>
 
           <br />

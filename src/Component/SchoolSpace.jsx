@@ -20,11 +20,6 @@ const SchoolSpace = () => {
           margin: "15px",
           // border: "2px solid green",
           height: "auto",
-          // backgroundColor: "primary.dark",
-          // "&:hover": {
-          //   backgroundColor: "primary.main",
-          //   opacity: [0.9, 0.8, 0.7],
-          // },
         }}
       >
         <div
@@ -62,13 +57,13 @@ const SchoolSpace = () => {
               }}
             />
           </div>
-          <div >
+          <div>
             <div
               style={{
                 position: "absolute",
-               
+
                 marginLeft: "10px",
-                lineHeight:"50px",
+                lineHeight: "50px",
                 fontFamily: "Passion One",
                 fontStyle: "normal",
                 fontWeight: "400",
