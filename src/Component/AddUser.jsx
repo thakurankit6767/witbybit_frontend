@@ -97,6 +97,7 @@ export default function AddUser() {
               name="studentName"
               value={studentName}
               id="my-input"
+              required
             />
           </FormControl>
           <FormControl>
@@ -106,6 +107,7 @@ export default function AddUser() {
               name="classNo"
               value={classNo}
               id="my-input"
+              required
             />
           </FormControl>
 
@@ -116,6 +118,7 @@ export default function AddUser() {
               name="score"
               value={score}
               id="my-input"
+              required
             />
           </FormControl>
 
@@ -139,9 +142,9 @@ export default function AddUser() {
             <div style={{ border: "0px solid red" }}>
               <p style={{ border: "0px solid green", width: "70px" }}>
                 {xyz(+user.score) ? (
-                  <div className="ave">Average</div>
+                  <div className="ave"><p style={{color:"#2CA4D8"}}>Average</p></div>
                 ) : (
-                  <div className="poo">Poor</div>
+                  <div className="poo"><p style={{color:"#F24643"}}>Poor</p></div>
                 )}
               </p>
             </div>

@@ -22,7 +22,6 @@ import EditUser from "./EditUser";
 import SchoolSpace from "./SchoolSpace";
 import RemoveUser from "./RemoveUser";
 
-
 const StyledTable = styled(Table)`
   width: 100%;
 `;
@@ -93,6 +92,19 @@ const AllUsers = () => {
     }
   };
 
+  // const abc = (x) => {
+  //   if (+x >= 30 && +x <= 75   ) {
+  //     console.log(x, "pass");
+
+  //   } else if(+x >= 75){
+  //     console.log(x, "excellent");
+
+  //   }else {
+  //     console.log(x, "napass");
+
+  //   }
+  // };
+
   return (
     <>
       <Box>
@@ -136,7 +148,10 @@ const AllUsers = () => {
                   marginBottom: "5px",
                 }}
               >
-                <Link to="/add" style={{ color: "white",textDecoration: "none"}}>
+                <Link
+                  to="/add"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
                   + Add
                 </Link>
               </Button>
@@ -178,9 +193,9 @@ const AllUsers = () => {
                     <TableCell>{user.score}</TableCell>
                     <TableCell>
                       {xyz(+user.score) ? (
-                        <div className="average">Average</div>
+                        <div className="average"><p style={{color:"#2CA4D8"}}>Average</p></div>
                       ) : (
-                        <div className="poor">Poor</div>
+                        <div className="poor"><p style={{color:"#F24643"}}>Poor</p></div>
                       )}
                     </TableCell>
                     <TableCell>
