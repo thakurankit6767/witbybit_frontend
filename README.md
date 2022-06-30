@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+E-commerce-clone
+Project: make a clone of https://e-commerce-clone-clone.vercel.app/ site.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a E-Commerce-Clone.
 
-## Available Scripts
+Technology Stack Used
+React
+Redux
+CSS
+Node.js for server
 
-In the project directory, you can run:
+Documentation
 
-### `npm start`
+create-react-app
+https://create-react-app.dev/docs/getting-started/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+react-paginate
+https://www.npmjs.com/package/react-paginate
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+react-router-dom
+https://www.npmjs.com/package/react-router-dom
 
-### `npm test`
+fetch_api
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+link
+https://v5.reactrouter.com/web/api/Link
 
-### `npm run build`
+material-UI
+https://mui.com/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Hooks
+https://react-redux.js.org/api/hooks
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ScreenShots
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![home](https://user-images.githubusercontent.com/95959359/169657549-8a2ef28d-0755-44a3-98dd-cb6662e40d9d.png)
+![footer](https://user-images.githubusercontent.com/95959359/169657561-d7518bbc-6458-4833-b52b-46e091f8a296.png)
+![productpage](https://user-images.githubusercontent.com/95959359/169657565-e7be01c8-be1b-43c2-99d2-17f311ed12aa.png)
+![productdetails](https://user-images.githubusercontent.com/95959359/169657569-c6fe3036-89d8-482c-a91c-b786c1a0c01b.png)
+![signup](https://user-images.githubusercontent.com/95959359/169657575-fec77ea0-179c-4f84-a0af-2cccd12ce7d7.png)
+![signin](https://user-images.githubusercontent.com/95959359/169657579-7be2193f-bca0-41f8-916f-093ef70fcbf3.png)
+![checkoutpage](https://user-images.githubusercontent.com/95959359/169657584-2d13066d-e021-4e1f-9c3a-46f341bcc3cc.png)
+![Uploading shoppigcart.png…]()
+![shippigetails](https://user-images.githubusercontent.com/95959359/169657599-98ca613d-c11f-4504-b6ba-6ec754a5af46.png)
+![successpage](https://user-images.githubusercontent.com/95959359/169657600-e1e6c7a2-22c3-44d9-8389-fd3c97322f28.png)
