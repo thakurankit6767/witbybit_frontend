@@ -21,7 +21,7 @@ export default function Spinner() {
       <Typed
         style={textstyle}
         className="loader-text"
-        strings={["Loading..."]}
+        strings={["Loading...."]}
         typeSpeed={50}
         backSpeed={0}
       />
