@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { AiOutlineDelete } from "react-icons/ai";
 import style from "../Component/Css/allUser.css";
+import Spinner from "./Spinner"
 
 import { getUsers, deleteUser, addUser } from "../Service/api";
 import { Link, useNavigate } from "react-router-dom";
@@ -61,7 +62,7 @@ const ButtonAddUser = styled("button")({
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
-
+  const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
   const navigate = useNavigate();
@@ -71,6 +72,19 @@ const AllUsers = () => {
   useEffect(() => {
     getAllUsers();
   }, []);
+
+  useEffect(() => {
+    let timer = setTimeout(() => setLoaded(true), 2000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const loaderstyle = {
+    position: "absolute",
+    left: "50%",
+    top: "35%",
+  };
 
   const deleteUserData = async (id) => {
     await deleteUser(id);
@@ -84,10 +98,10 @@ const AllUsers = () => {
 
   const xyz = (x) => {
     if (+x >= 30) {
-      console.log(x, "napass");
+      console.log(x, "pass");
       return true;
     } else {
-      console.log(x, "pass");
+      console.log(x, "napass");
       return false;
     }
   };
@@ -175,55 +189,67 @@ const AllUsers = () => {
                   <TableCell style={{ width: "30%" }}></TableCell>
                 </THead>
               </TableHead>
-              <TableBody>
-                {users.map((user) => (
-                  <TRow key={user.id}>
-                    <TableCell style={{ width: "10%" }}>{user._id}</TableCell>
-                    {/* change it to user.id to use JSON Server */}
-                    <TableCell>{user.studentName}</TableCell>
-                    <TableCell>{user.classNo}</TableCell>
-                    {}
-                    <TableCell>
-                      {xyz(+user.score) ? (
-                        <div className="passed">Passed</div>
-                      ) : (
-                        <div className="failed">Failed</div>
-                      )}
-                    </TableCell>
-                    <TableCell>{user.score}</TableCell>
-                    <TableCell>
-                      {xyz(+user.score) ? (
-                        <div className="average"><p style={{color:"#2CA4D8"}}>Average</p></div>
-                      ) : (
-                        <div className="poor"><p style={{color:"#F24643"}}>Poor</p></div>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      {user.grade}
-                      <div style={{ display: "flex", gap: "px" }}>
-                        <Button>
-                          <Link
-                            to={`/edit/${user._id}`}
-                            style={{ color: "white" }}
-                          >
-                            <img src="../Assets/Images/Edit.png" />
-                            Edit
-                          </Link>
-                        </Button>
-                        <Button>
-                          <Link
-                            to={`/remove/${user._id}`}
-                            style={{ color: "white" }}
-                          >
-                            <img src="../Assets/Images/delete.png" />
-                            Delete
-                          </Link>
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TRow>
-                ))}
-              </TableBody>
+
+              {!loaded ? (
+                <div style={loaderstyle}>
+                  <Spinner />
+                </div>
+              ) : (
+                <TableBody>
+                  {users.map((user) => (
+                    <TRow key={user.id}>
+                      <TableCell style={{ width: "10%" }}>{user._id}</TableCell>
+                      {/* change it to user.id to use JSON Server */}
+                      <TableCell>{user.studentName}</TableCell>
+                      <TableCell>{user.classNo}</TableCell>
+                      {}
+                      <TableCell>
+                        {xyz(+user.score) ? (
+                          <div className="passed">Passed</div>
+                        ) : (
+                          <div className="failed">Failed</div>
+                        )}
+                      </TableCell>
+                      <TableCell>{user.score}</TableCell>
+                      <TableCell>
+                        {xyz(+user.score) ? (
+                          <div className="average">
+                            <p style={{ color: "#2CA4D8" }}>Average</p>
+                          </div>
+                        ) : (
+                          <div className="poor">
+                            <p style={{ color: "#F24643" }}>Poor</p>
+                          </div>
+                        )}
+                      </TableCell>
+
+                      <TableCell>
+                        {user.grade}
+                        <div style={{ display: "flex", gap: "px" }}>
+                          <Button>
+                            <Link
+                              to={`/edit/${user._id}`}
+                              style={{ color: "white" }}
+                            >
+                              <img src="../Assets/Images/Edit.png" />
+                              Edit
+                            </Link>
+                          </Button>
+                          <Button>
+                            <Link
+                              to={`/remove/${user._id}`}
+                              style={{ color: "white" }}
+                            >
+                              <img src="../Assets/Images/delete.png" />
+                              Delete
+                            </Link>
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TRow>
+                  ))}
+                </TableBody>
+              )}
             </StyledTable>
           </Box>
         </Box>
